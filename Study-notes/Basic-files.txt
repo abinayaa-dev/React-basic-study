@@ -1,0 +1,38 @@
+Index.js : 
+
+Does 4 main things : 
+
+1. Imports required tools
+2. Creates the router
+3. Connects react to the DOM
+4. Starts rendering the app
+
+import ReactDOM from "react-dom/client";
+=>ReactDOM is responsible for rendering react into the browser
+=> /client gives access to modern React features
+
+"import reportWebVitals from "./reportWebVitals";" 
+=> Used to measure performance 
+
+
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+
+=>createBrowserRouter --- Creates a router using browser URL
+=>Route	--- Defines a route
+=>createRoutesFromElements --- Converts JSX routes to config
+=>RouterProvider --- Makes router available to app
+
+=> createBrowserRouter creates a router based on browser history, while createRoutesFromElements converts JSX Route components into route configuration.
+
+Browser loads page
+        ↓
+index.js runs
+        ↓
+ReactDOM.createRoot(...)
+        ↓
+<RouterProvider router={router} />

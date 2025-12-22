@@ -1,0 +1,37 @@
+=> Tabs are a UI pattern used to display multiple sections of content, where only one section is visible at a time.
+
+=> Tabs in React are built by keeping track of the active tab index in state and rendering content conditionally based on that index.
+Tabs are just state + conditional rendering
+
+=> Tabs in React are implemented using an array of tab definitions and a state variable that controls which tab’s content is rendered.
+
+2 Jobs : 
+
+1. Remember which tab is active
+2. Show only that tab’s content
+
+Tabs = index + array
+
+
+
+[ Tabs.jsx ]                         [ Tabs-Reusable.jsx ]
+      │                                      │
+      │ tabsData array                        │
+      └─────────────────────────────> props {tabs}
+                                             │
+                                   ┌─────────▼─────────┐
+                                   │ Renders tab headers│
+                                   │  (buttons with labels) │
+                                   └─────────┬─────────┘
+                                             │ click
+                                             ▼
+                                   ┌───────────────┐
+                                   │ Updates state │
+                                   │ activeIndex   │
+                                   └───────────────┘
+                                             │
+                                             ▼
+                                   ┌───────────────┐
+                                   │ Render active │
+                                   │ tab content   │
+                                   └───────────────┘
