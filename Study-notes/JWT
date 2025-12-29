@@ -1,0 +1,62 @@
+JWT = Jason Web Token - It’s just a string of text.
+
+JWT has 3 parts (like a sandwich 🥪):
+
+HEADER . PAYLOAD . SIGNATURE
+
+Header (How it’s locked 🔒)
+
+Says:
+
+1. Which algorithm used
+2. Token type
+
+Example:
+{
+"alg": "HS256",
+"typ": "JWT"
+}
+
+Payload (Who you are 👶)
+
+This is the important part.
+Example:
+
+{
+"userId": 123,
+"email": "abi@gmail.com"
+}
+
+Signature (Secret seal 🧙‍♂️)
+
+This part:
+Proves token is real
+Prevents tampering
+Made using:
+header + payload + SECRET_KEY
+
+Example : Using login
+
+1. React sends login request. -> email + password
+2. Backend verifies
+   If correct: -> Creates JWT -> Adds userId inside payload -> Sets expiry time ⏰
+3. Backend sends JWT 🍪
+   Backend puts JWT inside a cookie: -> Set-Cookie: token=JWT_HERE -> Browser stores it automatically.
+4. Every future request Browser sends: -> Cookie: token=JWT_HERE
+   Backend: -> Reads token -> Verifies signature -> Extracts userId -> Says: “Welcome back 😄”
+
+Confusion Truth
+JWT stores password ❌ NEVER
+JWT is encrypted ❌ It’s signed
+JWT lives in React state ❌ Bad idea
+JWT in cookie ✅ Best
+
+Login
+↓
+JWT created
+↓
+JWT stored in cookie 🍪
+↓
+Cookie sent automatically
+↓
+User authenticated
