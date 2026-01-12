@@ -1,0 +1,65 @@
+┌──────────────┐
+│  Code File   │
+│  (.js file)  │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│   Parsing    │
+│ (Syntax check│
+│  + tokenizing)
+└──────┬───────┘
+       │
+       ▼
+┌────────────────────┐
+│  Syntax Tree (AST) │
+│  Program structure │
+└──────┬─────────────┘
+       │
+       ▼
+┌────────────────────┐
+│   JIT Compiler     │
+│ (Just-In-Time)     │
+└──────┬─────────────┘
+       │
+       ▼
+┌──────────────┐
+│  Byte Code   │
+│ (Intermediate)
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ Machine Code │
+│ (CPU specific)
+└──────┬───────┘
+       │
+       ▼
+┌────────────────┐
+│ Code Execution │
+│  (Program runs)
+└────────────────┘
+
+
+Before Run Time
+
+1. Code File - > Your JavaScript source code (.js file)
+   Parsing ->The JS engine reads the code . Checks syntax ,Breaks code into tokens
+
+
+2. Syntax Tree (AST – Abstract Syntax Tree)  -> Code is converted into a tree structure , Represents the logical structure of the program
+
+
+Compilation Phase
+
+1. JIT Compiler (Just-In-Time Compiler) -> Takes the syntax tree -> Decides how to execute the code efficiently
+
+Code Conversion
+
+1. Bytecode -> Intermediate, platform-independent code , Easier and faster to generate than machine code
+
+2. Machine Code -> CPU-specific binary instructions, Generated for frequently used (“hot”) code
+
+Execution
+
+1. Code Execution -> Machine code runs directly on the CPU -> JavaScript program produces output
