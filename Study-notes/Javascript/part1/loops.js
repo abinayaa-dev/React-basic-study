@@ -18,7 +18,6 @@ for(let i=0;i<teas.length;i++)
     {
         break;
     }
-
     selecteddTeas.push(teas[i]);
 }
 
@@ -94,4 +93,48 @@ for(const tea of teaCollection)
         {break;}
     shortTeas.push(tea); 
 }
-console.log(shortTeas);
+console.log(shortTeas);             
+
+
+//functions
+function makeTea(typeOfTea){
+    return `maketea : ${typeOfTea}`
+}
+
+function processTeaOrder(teaFunction){
+  return teaFunction('earl grey')
+}
+let order = processTeaOrder(makeTea)
+
+console.log(order);
+
+//Higher order function : A function that takes another function as a paramater.
+//eg :  forEach
+
+// function processTeaOrder1(teaType)
+// {
+//     return `making ${teaType}`
+// }
+
+// function createTeaMaker(teaOrder,tea){
+//     return teaOrder(tea)
+// }
+
+// let teaMaker = createTeaMaker(processTeaOrder1 , "green tea")
+// console.log(teaMaker);
+ //Closure
+ // -> A closure happens when a child (inner) function remembers and can use variables from its parent function, even though 
+ // those variables are not passed as parameters.
+
+ //Example : 
+
+ 
+function createTeaMaker(tea){
+    return function()
+    {
+        return `making ${tea}`
+    }
+}
+let teaMaker1 = createTeaMaker("green tea");
+let result = teaMaker1();
+console.log(result);
